@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaction!</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, rgb(247, 234, 57), rgba(196, 223, 121, 0.8));
+  background-size: cover;
+  color: white;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+h1, p {
+  margin-bottom: 20px;
+}
+
+button {
+  background: linear-gradient(45deg, #000000, #000000);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #eeff00, #ffee00);
+}
+
+/* Confetti effect */
+@keyframes confetti {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.confetti div {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 0, 0, 0.8);
+  opacity: 0;
+  animation: confetti 5s linear infinite;
+  border-radius: 50%;
+}
+
+.confetti div:nth-child(1) {
+  background-color: rgba(255, 0, 0, 0.8);
+  animation-duration: 5s;
+  animation-delay: 0s;
+}
+
+.confetti div:nth-child(2) {
+  background-color: rgba(0, 255, 0, 0.8);
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.confetti div:nth-child(3) {
+  background-color: rgba(0, 0, 255, 0.8);
+  animation-duration: 4s;
+  animation-delay: 2s;
+}
+
+.confetti div:nth-child(4) {
+  background-color: rgba(255, 255, 0, 0.8);
+  animation-duration: 7s;
+  animation-delay: 3s;
+}
+
+.confetti div:nth-child(5) {
+  background-color: rgba(255, 165, 0, 0.8);
+  animation-duration: 5s;
+  animation-delay: 4s;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>STONE PLAN :</h1>
+  <p>Specifications:</p>
+  <p>2 CPU Core</p>
+  <p>4 GB RAM</p>
+  <p>25 GB Storage</p>
+  <p>India Location</p>
+  <p id="price">Price: $4 / 400 INR / 1000 PKR monthly</p>
+  <h2>PAYMENT METHODS :</h2>
+  <p>1 : Easypaisa - 12345678</p>
+  <p>2 : Jazzcash - 12345678</p>
+  <p>3 : Paypal - 12345678</p>
+  <p>4 : Paytm - 12345678</p>
+  <p>5 : Upi - 12345678</p>
+  <h2>IMPORTANT:</h2>
+  <p>After paying, take a screenshot of your payment confirmation and create a ticket on our Discord server Then Send The Screenshot In The Ticket And Also The Name Of The Plan You Bought We Will Be Providing You Your Server</p>
+  
+  <!-- Redeem Code Section -->
+  <h2>Redeem Code</h2>
+  <p>Enter the code below to get a 20% discount:</p>
+  <input type="text" id="redeemCode" placeholder="Enter code here">
+  <button onclick="applyDiscount()">Apply Code</button>
+  
+  <button onclick="window.location.href='https://discord.gg/8AqFS78jaY'">Create a Ticket on Discord</button>
+</div>
+
+<!-- Confetti Effect -->
+<script>
+function createConfetti() {
+  const confettiContainer = document.createElement('div');
+  confettiContainer.className = 'confetti';
+  
+  for (let i = 0; i < 50; i++) {
+    const confettiPiece = document.createElement('div');
+    confettiPiece.style.left = `${Math.random() * 100}vw`;
+    confettiPiece.style.top = `${Math.random() * 100}vh`;
+    confettiPiece.style.width = `${Math.random() * 10 + 5}px`;
+    confettiPiece.style.height = `${Math.random() * 10 + 5}px`;
+    confettiContainer.appendChild(confettiPiece);
+  }
+  
+  document.body.appendChild(confettiContainer);
+}
+
+// Function to apply discount
+function applyDiscount() {
+  const codeInput = document.getElementById('redeemCode');
+  const code = codeInput.value.trim().toUpperCase();
+  
+  // Original prices in dollars, INR, and PKR
+  const originalPriceUSD = 4;
+  const originalPriceINR = 400;
+  const originalPricePKR = 1000;
+  
+  // Discount code
+  const discountCode = 'SOLOHOSTINGISBEST';
+  
+  if (code === discountCode) {
+    // Calculate discounted prices
+    const discountedPriceUSD = (originalPriceUSD * 0.8).toFixed(2); // 20% discount
+    const discountedPriceINR = (originalPriceINR * 0.8).toFixed(2); // 20% discount
+    const discountedPricePKR = (originalPricePKR * 0.8).toFixed(2); // 20% discount
+    
+    // Update the price display
+    document.getElementById('price').textContent = `Price: $${discountedPriceUSD} / ${discountedPriceINR} INR / ${discountedPricePKR} PKR monthly`;
+    alert(`Discount applied! Your new prices are: $${discountedPriceUSD} (USD), ${discountedPriceINR} INR, ${discountedPricePKR} PKR.`);
+    
+    // Trigger confetti effect
+    createConfetti();
+  } else {
+    alert('Invalid code. Please try again.');
+  }
+}
+</script>
+</body>
+</html>
