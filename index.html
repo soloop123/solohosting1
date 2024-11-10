@@ -267,31 +267,12 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
     <script src="app.js"></script>
-    <script>
-        /** McHead bootstrap application */
-        var options = McHead.dom.$(".options"),
-            canvas = McHead.dom.$(".canvas"),
-            output = McHead.dom.$("#output");
-
-        McHead.dom.$("#version").innerHTML = McHead.version;
-
-        (new McHead.App(options, canvas, output, 256, 512)).init();
-
-        // Update yaw and pitch values
-        const yawSlider = document.getElementById("yaw");
-        const pitchSlider = document.getElementById("pitch");
-        const yawValue = document.getElementById("yaw-value");
-        const pitchValue = document.getElementById("pitch-value");
-
-        yawSlider.addEventListener("input", function() {
-            yawValue.textContent = `${yawSlider.value}°`;
-        });
-
-        pitchSlider.addEventListener("input", function() {
-            pitchValue.textContent = `${pitchSlider.value}°`;
-        });
-
-        
+    
+    <!-- Infolinks Ad Script -->
+    <script type="text/javascript">
+        var infolinks_pid = 3428558;
+        var infolinks_wsid = 1;
     </script>
+    <script type="text/javascript" src="https://resources.infolinks.com/js/infolinks_main.js"></script>
 </body>
 </html>
