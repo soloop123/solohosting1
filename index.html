@@ -12,9 +12,8 @@
             background-color: #f3f4f6;
             color: #333;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
         }
 
         a {
@@ -24,6 +23,16 @@
 
         a:hover {
             border-bottom: 1px solid rgba(49, 123, 255, 0.25);
+        }
+
+        /* Banner styling */
+        .banner {
+            width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         /* Layout styling */
@@ -214,8 +223,13 @@
 </head>
 <body>
     <!-- Start of banner code -->
-<a href="https://shrinkme.io/ref/108787738973984350598"><img src="https://shrinkme.io/banners/ref/728x90-2.png" title="Make short links and earn the biggest money" /></a>
-<!-- End of banner code -->
+    <div class="banner">
+        <a href="https://shrinkme.io/ref/108787738973984350598">
+            <img src="https://shrinkme.io/banners/ref/728x90-2.png" title="Make short links and earn the biggest money" />
+        </a>
+    </div>
+    <!-- End of banner code -->
+
     <div class="main">
         <div class="options">
             <img src="https://i.ibb.co/JFdJHSh/67b37dda-dd13-4bec-bce5-9a6f12958712-2-removebg-preview-1-1.png" alt="Mc Avatar 3d Logo" style="width: 100%; max-width: 200px; display: block; margin: 0 auto;">
@@ -259,42 +273,29 @@
         
         <div class="canvas">
             <h2>Canvas</h2>
-            <!-- Canvas element could go here -->
+            <!-- Canvas content -->
         </div>
-        
+
         <div class="output">
             <h2>Output</h2>
-            <img id="output" >
+            <img src="#" alt="Minecraft Avatar Preview">
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script>
-    <script src="app.js"></script>
     <script>
-        /** McHead bootstrap application */
-        var options = McHead.dom.$(".options"),
-            canvas = McHead.dom.$(".canvas"),
-            output = McHead.dom.$("#output");
-
-        McHead.dom.$("#version").innerHTML = McHead.version;
-
-        (new McHead.App(options, canvas, output, 256, 512)).init();
-
-        // Update yaw and pitch values
-        const yawSlider = document.getElementById("yaw");
-        const pitchSlider = document.getElementById("pitch");
+        // Add JavaScript for yaw and pitch sliders
+        const yawInput = document.getElementById("yaw");
+        const pitchInput = document.getElementById("pitch");
         const yawValue = document.getElementById("yaw-value");
         const pitchValue = document.getElementById("pitch-value");
 
-        yawSlider.addEventListener("input", function() {
-            yawValue.textContent = `${yawSlider.value}°`;
+        yawInput.addEventListener("input", () => {
+            yawValue.textContent = `${yawInput.value}°`;
         });
 
-        pitchSlider.addEventListener("input", function() {
-            pitchValue.textContent = `${pitchSlider.value}°`;
+        pitchInput.addEventListener("input", () => {
+            pitchValue.textContent = `${pitchInput.value}°`;
         });
-
-        
     </script>
 </body>
 </html>
